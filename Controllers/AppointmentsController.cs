@@ -50,40 +50,40 @@ namespace Frontdesk6.Controllers
         // GET: Appointments/Create
         public IActionResult Create()
         {
+            PopulateLayananDropdownList();
             return View();
         }
 
         // POST: Appointments/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AppointmentID,Nama,Email,NomorApp,Tanggal,Subject,Deskripsi,Tujuan,NamaLayanan,StartDate,EndDate,ProcessDate,StatusFrontdesk")] Appointment appointment)
+        public async Task<IActionResult> Create([Bind("AppointmentID,Nama,Email,NomorApp,Tanggal,Subject,Deskripsi,Tujuan,NamaLayanan")] Appointment appointment)
         {
+
+
+            var nomor = DateTime.Now.Ticks.ToString();
+            var nomorl = nomor.Substring(nomor.Length - 5);
+            var tjn = appointment.NamaLayanan;
+            var tjn2 = tjn.Substring(0, 1);
+
             if (ModelState.IsValid)
             {
+
+
+                appointment.NomorApp = tjn2 + "-" + nomorl;
+                appointment.StartDate = DateTime.Now;
+                appointment.StatusFrontdesk = Appointment.status.mulai;
+                PopulateLayananDropdownList(ViewBag.NamaLayanan);
                 _context.Add(appointment);
+
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", new { id = appointment.AppointmentID });
             }
             return View(appointment);
         }
 
-        // GET: Appointments/Edit/5
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var appointment = await _context.Appointment.FindAsync(id);
-            if (appointment == null)
-            {
-                return NotFound();
-            }
-            return View(appointment);
-        }
 
         // POST: Appointments/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -152,6 +152,14 @@ namespace Frontdesk6.Controllers
         private bool AppointmentExists(string id)
         {
             return _context.Appointment.Any(e => e.AppointmentID == id);
+        }
+
+        private void PopulateLayananDropdownList(object selectedPendok = null)
+        {
+            var pendoksQuery = from d in _context.LayananFrontdesk
+                               orderby d.NamaLayanan
+                               select d;
+            ViewBag.NamaLayanan = new SelectList(pendoksQuery.AsNoTracking(), "NamaLayanan", "NamaLayanan", selectedPendok);
         }
     }
 }

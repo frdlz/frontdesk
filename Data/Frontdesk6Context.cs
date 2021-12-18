@@ -26,5 +26,7 @@ namespace Frontdesk6.Data
         }
 
         public DbSet<Frontdesk6.Models.Frontdesk.Appointment> Appointment { get; set; }
+
+        public DbSet<Frontdesk6.Models.Frontdesk.LayananFrontdesk> LayananFrontdesk { get; set; }
     }
 }
