@@ -1,12 +1,6 @@
-using Frontdesk6.Data;
-using Frontdesk6.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -14,8 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.IO;
-using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
+using Frontdesk6.Data;
+using Frontdesk6.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.HttpOverrides;
 
 namespace Frontdesk6
@@ -39,12 +37,12 @@ namespace Frontdesk6
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddControllersWithViews();
-            services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Account/Login");
+           
             services.AddDbContext<Frontdesk6Context>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("Frontdesk6ContextConnection")));
-            
-            
+            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<Frontdesk6Context>().AddDefaultTokenProviders();
+
             services.AddMvc()
                 .AddNewtonsoftJson(options =>
                 {
@@ -64,15 +62,7 @@ namespace Frontdesk6
             }
             else
             {
-                app.Use(async (context, next) =>
-                {
-                    await next();
-                    if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
-                    {
-                        context.Request.Path = "/index.html";
-                        await next();
-                    }
-                });
+                app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -87,6 +77,7 @@ namespace Frontdesk6
             
             app.UseStaticFiles();
             app.UseAuthentication();
+            app.UseAuthorization();
             app.UseRouting();
 
             
@@ -95,7 +86,7 @@ namespace Frontdesk6
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Account}/{action=Absen}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

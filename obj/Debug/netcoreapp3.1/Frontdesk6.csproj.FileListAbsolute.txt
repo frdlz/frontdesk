@@ -364,7 +364,6 @@ C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\staticwebassets\
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Frontdesk6.TagHelpers.input.cache
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Frontdesk6.TagHelpers.output.cache
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Frontdesk6.RazorCoreGenerate.cache
-C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Account\Absen.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Create.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Delete.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Details.cshtml.g.cs
@@ -388,3 +387,8 @@ C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Frontdesk6.cspro
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Frontdesk6.dll
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Frontdesk6.pdb
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Frontdesk6.genruntimeconfig.cache
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Create.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index1.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Update.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs

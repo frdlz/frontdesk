@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Filters.Controllers
+namespace Frontdesk6.Controllers
 {
-    [Authorize(Roles = "PDAD")]
+    
     public class AdminController : Controller
     {
         private UserManager<AppUser> userManager;
@@ -25,7 +25,7 @@ namespace Filters.Controllers
             userValidator = userValid;
         }
         // GET: /<controller>/
-
+        [Authorize(Roles = "PDAD")]
         public IActionResult Index()
         {
             return View(userManager.Users);
@@ -58,7 +58,7 @@ namespace Filters.Controllers
             }
             return View(user);
         }
-
+        [Authorize(Roles = "PDAD")]
         public async Task<IActionResult> Update(string id)
         {
             AppUser user = await userManager.FindByIdAsync(id);
@@ -67,7 +67,7 @@ namespace Filters.Controllers
             else
                 return RedirectToAction("Index");
         }
-
+        [Authorize(Roles = "PDAD")]
         [HttpPost]
 
         public async Task<IActionResult> Update(string id, string email, string password, string jabatan, string Penempatan)
@@ -129,7 +129,7 @@ namespace Filters.Controllers
                 ModelState.AddModelError("", error.Description);
 
         }
-
+        [Authorize(Roles = "PDAD")]
         [HttpPost]
 
         public async Task<IActionResult> Delete(string id)

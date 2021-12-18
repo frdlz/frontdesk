@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Frontdesk6.Data;
 using Frontdesk6.Models.Frontdesk;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Frontdesk6.Controllers
 {
@@ -118,7 +119,7 @@ namespace Frontdesk6.Controllers
             }
             return View(appointment);
         }
-
+        [Authorize(Roles = "PDAD")]
         // GET: Appointments/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
@@ -136,7 +137,7 @@ namespace Frontdesk6.Controllers
 
             return View(appointment);
         }
-
+        [Authorize(Roles = "PDAD")]
         // POST: Appointments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

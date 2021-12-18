@@ -21,7 +21,7 @@ namespace Frontdesk6.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Absen(string returnUrl)
+        public IActionResult Login(string returnUrl)
         {
             Login login = new Login();
             login.ReturnUrl = returnUrl;
@@ -29,7 +29,7 @@ namespace Frontdesk6.Controllers
         }
 
 
-        [HttpPost, ActionName("Absen")]
+        [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(Login login)
@@ -42,7 +42,7 @@ namespace Frontdesk6.Controllers
                     await signInManager.SignOutAsync();
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(appUser, login.Password, false, false);
                     if (result.Succeeded)
-                        return RedirectToAction("Absen", "Home"); ;
+                        return RedirectToAction("Index", "Home"); ;
                 }
                 ModelState.AddModelError(nameof(login.Email), "Login Failed: Invalid email or password");
             }

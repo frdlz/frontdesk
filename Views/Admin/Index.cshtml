@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AppUser>
+    <head>
+        <script type="text/javascript" charset="utf8" src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    </head>
+
+<a asp-action="Create" class="btn btn-secondary">Create a User</a>
+<div class="container-fluid">
+    <table id="dataTable" class="display compact table-bordered wrap table-responsive-sm">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Penempatan</th>
+            <th>Jabatan</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (AppUser user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.Penempatan</td>
+                <td>@user.Jabatan</td>
+                <td><a class="btn btn-sm btn-primary" asp-action="Update" asp-route-id="@user.Id">Update</a></td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#dataTable").dataTable({
+            
+        });
+    });
+</script>
