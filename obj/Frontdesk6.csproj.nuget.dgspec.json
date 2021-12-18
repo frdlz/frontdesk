@@ -1,27 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fiord\\source\\repos\\Frontdesk6\\Frontdesk6.csproj": {}
+    "C:\\Users\\XCV\\Documents\\GitHub\\frontdesk\\Frontdesk6.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fiord\\source\\repos\\Frontdesk6\\Frontdesk6.csproj": {
+    "C:\\Users\\XCV\\Documents\\GitHub\\frontdesk\\Frontdesk6.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fiord\\source\\repos\\Frontdesk6\\Frontdesk6.csproj",
+        "projectUniqueName": "C:\\Users\\XCV\\Documents\\GitHub\\frontdesk\\Frontdesk6.csproj",
         "projectName": "Frontdesk6",
-        "projectPath": "C:\\Users\\fiord\\source\\repos\\Frontdesk6\\Frontdesk6.csproj",
-        "packagesPath": "C:\\Users\\fiord\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fiord\\source\\repos\\Frontdesk6\\obj\\",
+        "projectPath": "C:\\Users\\XCV\\Documents\\GitHub\\frontdesk\\Frontdesk6.csproj",
+        "packagesPath": "C:\\Users\\XCV\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\XCV\\Documents\\GitHub\\frontdesk\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\fiord\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\XCV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -95,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
