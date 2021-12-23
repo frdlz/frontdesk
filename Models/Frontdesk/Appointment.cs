@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,10 +10,11 @@ namespace Frontdesk6.Models.Frontdesk
 {
     public class Appointment
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string AppointmentID { get; set; }
         public string Nama { get; set; }
         public string Email { get; set; }
-        [Display(Name = "Nomor")]
+        [Display(Name = "Nomor Antrian")]
         public string NomorApp { get; set; }
         [Display(Name = "Tanggal")]
         [DataType(DataType.DateTime)]
@@ -21,6 +23,7 @@ namespace Frontdesk6.Models.Frontdesk
 
         public string Subject { get; set; }
         public string Deskripsi { get; set; }
+        [Display(Name = "Nomor")]
         public string Tujuan { get; set; }
         public string NamaLayanan { get; set; }
         [DataType(DataType.DateTime)]

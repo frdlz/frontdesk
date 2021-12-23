@@ -3,55 +3,85 @@
 @{
     ViewData["Title"] = "Create";
 }
-
+ <head>
+        <script type="text/javascript" charset="utf8" src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    </head>
 
 <hr />
-<div class="row">
-    <div class="col-md-10">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="AppointmentID" class="control-label"></label>
-                <input asp-for="AppointmentID" class="form-control" />
-                <span asp-validation-for="AppointmentID" class="text-danger"></span>
+<div class="container mt-2 mb-2">
+
+    <div class="alert alert-info alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Info!</strong> For a better experience use Chrome or Safari.
+    </div>
+    <div class="card border-dark shadow-lg text-center">
+        <div class="card-body text-left">
+            <div class="text-center">
+                <h4>Form Layanan Konsultasi</h4>
             </div>
-            <div class="form-group">
-                <label asp-for="Nama" class="control-label"></label>
-                <input asp-for="Nama" class="form-control" />
-                <span asp-validation-for="Nama" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NomorApp" class="control-label"></label>
-                <input asp-for="NomorApp" class="form-control" />
-                <span asp-validation-for="NomorApp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tanggal" class="control-label"></label>
-                <input asp-for="Tanggal" class="form-control" />
-                <span asp-validation-for="Tanggal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Subject" class="control-label"></label>
-                <input asp-for="Subject" class="form-control" />
-                <span asp-validation-for="Subject" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Deskripsi" class="control-label"></label>
-                <input asp-for="Deskripsi" class="form-control" />
-                <span asp-validation-for="Deskripsi" class="text-danger"></span>
-            </div>
-           
-           <div class="row">
+            
+            <hr />
+            <div class="col-md-12">
+                <form asp-action="Create">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label asp-for="Nama" class="control-label"></label>
+                                <input asp-for="Nama" class="form-control" />
+                                <span asp-validation-for="Nama" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label asp-for="Tanggal" class="control-label"></label>
+                                <input asp-for="Tanggal" class="form-control" />
+                                <span asp-validation-for="Tanggal" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label asp-for="Subject" class="control-label"></label>
+                                <input asp-for="Subject" class="form-control" />
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label asp-for="Deskripsi" class="control-label"></label>
+                                <textarea asp-for="Deskripsi" class="form-control" rows="5"></textarea>
+
+                                <span asp-validation-for="Deskripsi" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
                         <div class="col-md-12">
 
                             <div class="form-group">
                                 <label asp-for="NamaLayanan" class="control-label"></label>
-                                <select asp-for="NamaLayanan" class="custom-select" asp-items="ViewBag.NamaLayanan" id="rere">
+                                <select id="NamaLayanan" asp-for="NamaLayanan" class="custom-select" asp-items="ViewBag.NamaLayanan">
                                     <option value="">-- Select--</option>
                                 </select>
                                 <span asp-validation-for="NamaLayanan" class="text-danger" />
@@ -59,19 +89,36 @@
                         </div>
 
                     </div>
-           <div id="No">
-                <div class="form-group">
-                <label asp-for="Tujuan" class="control-label"></label>
-                <input asp-for="Tujuan" class="form-control" />
-                <span asp-validation-for="Tujuan" class="text-danger"></span>
+                     <div class="row" id="ThePages">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label asp-for="Tujuan" class="control-label"></label>
+                                <input asp-for="Tujuan" class="form-control" />
+
+                                <span asp-validation-for="Tujuan" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-sm btn-primary buttonfx float-left" />
+                        <a class="float-right" asp-action="Index">Kembali</a>
+                    </div>
+                </form>
+
             </div>
-           </div>
-                
-            
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+
+        </div>
     </div>
 </div>
 
@@ -81,21 +128,20 @@
 
 <script type="text/javascript">
     function hideOnLoad() {
-        $('#No').hide();
-        $('#EcheckForm').hide();
+        $("#ThePages").hide();
+       
     }
-     $(document).ready(function () {
-	hideOnLoad();
-        $('#rere').change(function () {
+$(document).ready(function () {
+        hideOnLoad();
+        $("#NamaLayanan").change(function () {
             var value = $(this).val();
-            if (value == '1') {
-                $('#No').show();
-                $('#EcheckForm').hide();
-            } else if (value == '2') {
-                $('#No').hide();
-                $('#EcheckForm').show();
-            } else {
-		hideOnLoad();
+            if (value == "Permohonan Pemeriksaan Karantina Ikan (Sisterkaroline)") {
+                $("#ThePages").show();
+               
+            }
+           
+            else {
+                hideOnLoad();
             }
         });
     });

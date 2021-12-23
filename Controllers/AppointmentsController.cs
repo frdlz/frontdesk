@@ -75,7 +75,7 @@ namespace Frontdesk6.Controllers
                 appointment.NomorApp = tjn2 + "-" + nomorl;
                 appointment.StartDate = DateTime.Now;
                 appointment.StatusFrontdesk = Appointment.status.mulai;
-                PopulateLayananDropdownList(ViewBag.NamaLayanan);
+                PopulateLayananDropdownList(appointment.NamaLayanan);
                 _context.Add(appointment);
 
                 await _context.SaveChangesAsync();
@@ -84,7 +84,63 @@ namespace Frontdesk6.Controllers
             return View(appointment);
         }
 
+        public async Task<IActionResult> NoAdd(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
+            var add = await _context.Appointment
+                 .Include(c => c.NamaLayanan)
+               
+
+                .FirstOrDefaultAsync(m => m.AppointmentID == id);
+            if (add == null)
+            {
+                return NotFound();
+            }
+            PopulateLayananDropdownList(ViewBag.NamaLayanan);
+            return View(add);
+        }
+
+        // POST: Pendoks/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost, ActionName("AddNo")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddNo(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var monitaToUpdate = await _context.Appointment
+                 .Include(c => c.NamaLayanan)
+               
+                
+
+                  .FirstOrDefaultAsync(c => c.AppointmentID == id);
+
+            if (await TryUpdateModelAsync<Appointment>(monitaToUpdate,
+                "",
+               a => a.Tujuan))
+            {
+                try
+                {
+                    
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException)
+                {
+                    ModelState.AddModelError("", "Unable to save changes");
+                }
+                return RedirectToAction("Indexs", "Monitorings");
+            }
+
+            PopulateLayananDropdownList(monitaToUpdate.NamaLayanan);
+            return View(monitaToUpdate);
+        }
         // POST: Appointments/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

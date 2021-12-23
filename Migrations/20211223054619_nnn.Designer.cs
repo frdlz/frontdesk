@@ -4,14 +4,16 @@ using Frontdesk6.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Frontdesk6.Migrations
 {
     [DbContext(typeof(Frontdesk6Context))]
-    partial class Frontdesk6ContextModelSnapshot : ModelSnapshot
+    [Migration("20211223054619_nnn")]
+    partial class nnn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
