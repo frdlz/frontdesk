@@ -135,7 +135,7 @@ $(document).ready(function () {
         hideOnLoad();
         $("#NamaLayanan").change(function () {
             var value = $(this).val();
-            if (value == "Permohonan Pemeriksaan Karantina Ikan (Sisterkaroline)") {
+            if (value == "Sisterkaroline") {
                 $("#ThePages").show();
                
             }
@@ -145,4 +145,27 @@ $(document).ready(function () {
             }
         });
     });
+    $(document).ready(function() {
+  $("#NamaLayanan").change(function() {
+    var rate = $(this).find("option:selected").text(); //get option text
+    var this_ = $(this)
+    //loop through other slects but not the one where change has occur
+    $("select.rate").not(this).each(function() {
+      var values = $(this).find("option:selected").text();
+      //compare... 
+      if (rate == 'Sisterkaroline' && values == 'MAX') {
+        alert("Since you have selected MAX, you can't select MAC");
+        this_.val("") //reset
+        return false; //break through loop
+      }
+      if (rate == 'MAX' && values == 'MAC') {
+        alert("Since you have selected MAC, you can't select MAX")
+        this_.val("")
+        return false;
+
+      }
+    })
+
+  });
+});
 </script>

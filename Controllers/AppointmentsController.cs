@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Frontdesk6.Data;
 using Frontdesk6.Models.Frontdesk;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Frontdesk6.Controllers
 {
@@ -67,20 +68,40 @@ namespace Frontdesk6.Controllers
             var nomorl = nomor.Substring(nomor.Length - 5);
             var tjn = appointment.NamaLayanan;
             var tjn2 = tjn.Substring(0, 1);
-
-            if (ModelState.IsValid)
+            
+            if (appointment.NamaLayanan.Contains("Sisterkaroline"))
             {
+                Appointment app = new Appointment
+                {
+                    Tujuan = appointment.Tujuan
+                };
 
-
-                appointment.NomorApp = tjn2 + "-" + nomorl;
-                appointment.StartDate = DateTime.Now;
-                appointment.StatusFrontdesk = Appointment.status.mulai;
-                PopulateLayananDropdownList(appointment.NamaLayanan);
-                _context.Add(appointment);
-
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Details", new { id = appointment.AppointmentID });
+                if (appointment.Tujuan == null)
+                {
+                    ModelState.AddModelError(nameof(appointment.Tujuan), "Jumlah DWT kurang dari 15.000");
+                }
             }
+
+            else
+            {
+                if (ModelState.IsValid)
+                {
+
+
+                    appointment.NomorApp = tjn2 + "-" + nomorl;
+                    appointment.StartDate = DateTime.Now;
+                    appointment.StatusFrontdesk = Appointment.status.mulai;
+                    PopulateLayananDropdownList(appointment.NamaLayanan);
+
+                    _context.Add(appointment);
+
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Details", new { id = appointment.AppointmentID });
+                }
+            }
+                
+
+           
             return View(appointment);
         }
 

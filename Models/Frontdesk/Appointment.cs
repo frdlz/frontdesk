@@ -23,6 +23,7 @@ namespace Frontdesk6.Models.Frontdesk
 
         public string Subject { get; set; }
         public string Deskripsi { get; set; }
+       
         [Display(Name = "Nomor")]
         public string Tujuan { get; set; }
         public string NamaLayanan { get; set; }
