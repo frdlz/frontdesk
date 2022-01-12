@@ -1,0 +1,93 @@
+﻿@model Frontdesk6.Models.Frontdesk.Appointment
+
+@{
+    ViewData["Title"] = "layanan";
+}
+
+<h1>Pilih Layanan</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+       <div>
+                    <form asp-action="NoAdd">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="AppointmentID" />
+                        
+                        <div class="card-deck">
+                            <div class="card cardsize bg-gradient-white border-success mb-3">
+                                <div class="card-body">
+                                    <a class="btn buttonfx stretched-link" asp-action="NoSisterkaroline" asp-route-id="@Model.AppointmentID"></a>
+                                </div>
+                                <div class="card-footer csize"><i class="fas fa-mountain" style="color:dimgray"></i>HACCP</div>
+
+                            </div>
+                            <div class="card cardsize bg-gradient-white border-success mb-3">
+                                <div class="card-body">
+                                    <a class="btn buttonfx stretched-link" asp-action="NoSisterkaroline" asp-route-id="@Model.AppointmentID"></a>
+                                </div>
+                                <div class="card-footer csize"><i class="fas fa-mountain" style="color:dimgray"></i>HACCP</div>
+
+                            </div>
+                            <div class="card cardsize bg-gradient-white border-success mb-3">
+                                <div class="card-body">
+                                    <a class="btn buttonfx stretched-link" asp-action="NoSisterkaroline" asp-route-id="@Model.AppointmentID"></a>
+                                </div>
+                                <div class="card-footer csize"><i class="fas fa-mountain" style="color:dimgray"></i>CKIB</div>
+
+                            </div>
+                            <div class="card cardsize bg-gradient-white border-success mb-3">
+                                <div class="card-body">
+                                    <a class="btn buttonfx stretched-link" asp-action="NoSisterkaroline" asp-route-id="@Model.AppointmentID"></a>
+                                </div>
+                                <div class="card-footer csize"><i class="fas fa-mountain" style="color:dimgray"></i>KUSUKA</div>
+
+                            </div>
+                            <div class="card cardsize bg-gradient-white border-success mb-3">
+                                <div class="card-body">
+                                    <a class="btn buttonfx stretched-link" asp-action="NoSisterkaroline" asp-route-id="@Model.AppointmentID"></a>
+                                </div>
+                                <div class="card-footer csize"><i class="fas fa-mountain" style="color:dimgray"></i>PPK ONLINE KKP</div>
+
+                            </div>
+                            <div class="card cardsize bg-gradient-white border-success mb-3">
+                                <div class="card-body">
+                                    <a class="btn buttonfx stretched-link" asp-action="NoSisterkaroline" asp-route-id="@Model.AppointmentID"></a>
+                                </div>
+                                <div class="card-footer csize"><i class="fas fa-mountain" style="color:dimgray"></i>Sampel Produk Perikanan</div>
+
+                            </div>
+                            <div class="card cardsize bg-gradient-white border-success mb-3">
+                                <div class="card-body">
+                                    <a class="btn buttonfx stretched-link" asp-action="NoSisterkaroline" asp-route-id="@Model.AppointmentID"></a>
+                                </div>
+                                <div class="card-footer csize"><i class="fas fa-mountain" style="color:dimgray"></i>Surat Masuk/Surat Keluar</div>
+
+                            </div>
+                            <div class="card cardsize bg-gradient-white border-success mb-3">
+                                <div class="card-body">
+                                    <a class="btn buttonfx stretched-link" asp-action="NoSisterkaroline" asp-route-id="@Model.AppointmentID"></a>
+                                </div>
+                                <div class="card-footer csize"><i class="fas fa-mountain" style="color:dimgray"></i>lainnya</div>
+
+                            </div>
+                            <div class="card cardsize bg-gradient-white border-success mb-3">
+                                <div class="card-body">
+
+                                    <a class="btn buttonfx stretched-link" asp-action="Sisterkaroline" asp-route-id="@Model.AppointmentID"></a>
+                                </div>
+                                <div class="card-footer csize"><i class="fas fa-ship" style="color:dimgray"></i>Sisterkaroline</div>
+                            </div>
+                        </div>
+                        
+
+                    </form>
+                </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
