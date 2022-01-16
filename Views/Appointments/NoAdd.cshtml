@@ -8,26 +8,20 @@
 
 
 <hr />
-<div class="row">
-    <div class="col-md-4">
+
+    <div class="col-md-12">
        <div>
                     <form asp-action="NoAdd">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="AppointmentID" />
                         
                         <div class="card-deck">
+                            
                             <div class="card cardsize bg-gradient-white border-success mb-3">
                                 <div class="card-body">
                                     <a class="btn buttonfx stretched-link" asp-action="NoSisterkaroline" asp-route-id="@Model.AppointmentID"></a>
                                 </div>
-                                <div class="card-footer csize"><i class="fas fa-mountain" style="color:dimgray"></i>HACCP</div>
-
-                            </div>
-                            <div class="card cardsize bg-gradient-white border-success mb-3">
-                                <div class="card-body">
-                                    <a class="btn buttonfx stretched-link" asp-action="NoSisterkaroline" asp-route-id="@Model.AppointmentID"></a>
-                                </div>
-                                <div class="card-footer csize"><i class="fas fa-mountain" style="color:dimgray"></i>HACCP</div>
+                                <div class="card-footer bg-transparent csize"><i class="fas fa-mountain" style="color:dimgray"></i>HACCP</div>
 
                             </div>
                             <div class="card cardsize bg-gradient-white border-success mb-3">
@@ -85,9 +79,9 @@
                     </form>
                 </div>
     </div>
-</div>
+
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Batal</a>
 </div>
 
