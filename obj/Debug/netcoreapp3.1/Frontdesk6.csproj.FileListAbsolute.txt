@@ -398,3 +398,4 @@ C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Laya
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\LayananFrontdesks\Edit.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\LayananFrontdesks\Index.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\NoAdd.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout - Copy.cshtml.g.cs

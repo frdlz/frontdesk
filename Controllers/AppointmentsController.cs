@@ -88,7 +88,7 @@ namespace Frontdesk6.Controllers
            
             return View(appointment);
         }
-        [HttpGet("Appointments/PilihLokasi/{Id}")]
+        [HttpGet("Appointments/NoAdd/{Id}")]
 
         public async Task<IActionResult> NoAdd(string? id)
         {
@@ -116,7 +116,7 @@ namespace Frontdesk6.Controllers
         // POST: Pendoks/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost("Appointments/PilihLokasi/{Id}")]
+        [HttpPost("Appointments/NoAdd/{Id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddNoSister(string? id)
         {

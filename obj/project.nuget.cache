@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GopfKAa4WA9yiVkSFtETuTNj/21dGevwLNv87FJFHlj5Q7dw2kM8HSDqnjb1j0m18pX28wxRK0FfiROKusFczA==",
+  "dgSpecHash": "LBKBtWGn5DPJNEWf2dsJDg6C1K/3saNjY2KWr4SShELDZWBDJQPLfEfzWRPt2LL4KeMY2Tk+jlRmse0NIjQTww==",
   "success": true,
   "projectFilePath": "C:\\Users\\XCV\\Documents\\GitHub\\frontdesk\\Frontdesk6.csproj",
   "expectedPackageFiles": [
@@ -174,7 +174,8 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\XCV\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512"
   ],
   "logs": []
 }
