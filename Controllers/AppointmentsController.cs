@@ -158,7 +158,149 @@ namespace Frontdesk6.Controllers
 
             return View(monitaToUpdate);
         }
-        
+        [HttpGet("Appointments/Sisterkaroline/{Id}")]
+
+        public async Task<IActionResult> Sisterkaroline(string? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var monitoring = await _context.Appointment
+
+                 .Include(c => c.LayananFrontdesk)
+
+
+
+                .FirstOrDefaultAsync(m => m.AppointmentID == id);
+            if (monitoring == null)
+            {
+                return NotFound();
+            }
+            PopulateLayananDropdownList(monitoring.NamaLayanan);
+
+            return View(monitoring);
+        }
+
+        // POST: Pendoks/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost("Appointments/Sisterkaroline/{Id}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddSisterkaroline(string? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+           
+            var monitaToUpdate = await _context.Appointment
+                 .Include(c => c.LayananFrontdesk)
+
+
+
+                  .FirstOrDefaultAsync(c => c.AppointmentID == id);
+            var nomor = DateTime.Now.Ticks.ToString();
+            var nomorl = nomor.Substring(nomor.Length - 5);
+            var tjn = "Sisterkaroline";
+            var tjn2 = tjn.Substring(0, 1);
+            if (await TryUpdateModelAsync<Appointment>(monitaToUpdate,
+                "",
+               a => a.NamaLayanan, b => b.Tujuan))
+            {
+                try
+                {
+                    monitaToUpdate.NomorApp = tjn2 + "-" + nomorl;
+                    monitaToUpdate.StatusFrontdesk = Appointment.status.mulai;
+                    monitaToUpdate.NamaLayanan = "Sisterkaroline";
+
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException)
+                {
+                    ModelState.AddModelError("", "Unable to save changes");
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            PopulateLayananDropdownList(monitaToUpdate.NamaLayanan);
+
+
+            return View(monitaToUpdate);
+        }
+        [HttpGet("Appointments/NoSisterkaroline/{Id}")]
+
+        public async Task<IActionResult> NoSisterkaroline(string? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var monitoring = await _context.Appointment
+
+                 .Include(c => c.LayananFrontdesk)
+
+
+
+                .FirstOrDefaultAsync(m => m.AppointmentID == id);
+            if (monitoring == null)
+            {
+                return NotFound();
+            }
+            PopulateLayananDropdownList(monitoring.NamaLayanan);
+
+            return View(monitoring);
+        }
+
+        // POST: Pendoks/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost("Appointments/NoSisterkaroline/{Id}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddNoSisterkaroline(string? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var monitaToUpdate = await _context.Appointment
+                 .Include(c => c.LayananFrontdesk)
+
+
+
+                  .FirstOrDefaultAsync(c => c.AppointmentID == id);
+            
+            if (await TryUpdateModelAsync<Appointment>(monitaToUpdate,
+                "",
+               a => a.NamaLayanan, b => b.Tujuan))
+            {
+                try
+                {
+                    var nomor = DateTime.Now.Ticks.ToString();
+                    var nomorl = nomor.Substring(nomor.Length - 5);
+                    var tjn = monitaToUpdate.NamaLayanan;
+                    var tjn2 = tjn.Substring(0, 1);
+
+                    monitaToUpdate.NomorApp = tjn2 + "-" + nomorl;
+                    monitaToUpdate.StatusFrontdesk = Appointment.status.mulai;
+
+
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException)
+                {
+                    ModelState.AddModelError("", "Unable to save changes");
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            PopulateLayananDropdownList(monitaToUpdate.NamaLayanan);
+
+
+            return View(monitaToUpdate);
+        }
         // POST: Appointments/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
