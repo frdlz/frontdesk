@@ -40,7 +40,7 @@ namespace Frontdesk6
            
             services.AddDbContext<Frontdesk6Context>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("Frontdesk6ContextConnection")));
+                    Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<Frontdesk6Context>().AddDefaultTokenProviders();
 
             services.AddMvc()
@@ -76,12 +76,12 @@ namespace Frontdesk6
             app.UseStatusCodePages();
             
             app.UseStaticFiles();
+            
+            
+            app.UseRouting();
+           
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseRouting();
-
-            
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -2,9 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Frontdesk6.Controllers
@@ -25,7 +22,7 @@ namespace Frontdesk6.Controllers
             userValidator = userValid;
         }
         // GET: /<controller>/
-        [Authorize(Roles = "PDAD")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View(userManager.Users);

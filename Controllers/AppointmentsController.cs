@@ -8,29 +8,98 @@ using Microsoft.EntityFrameworkCore;
 using Frontdesk6.Data;
 using Frontdesk6.Models.Frontdesk;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Frontdesk6.Models.Frontdesk.VM;
+using Frontdesk6.Models;
 
 namespace Frontdesk6.Controllers
 {
     public class AppointmentsController : Controller
     {
         private readonly Frontdesk6Context _context;
+        private UserManager<AppUser> userManager; //mengambil data user yang terdaftar dari database AppUser
 
-        public AppointmentsController(Frontdesk6Context context)
+        public AppointmentsController(Frontdesk6Context context, UserManager<AppUser> userMgr)
         {
+            userManager = userMgr;
             _context = context;
         }
-
+        [Authorize(Roles = "PDAD")]
         // GET: Appointments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Appointment.ToListAsync());
+            return View(await _context.Appointment
+                .Include(a => a.LayananFrontdesk)
+                .Where(b => b.StatusFrontdesk != Appointment.status.selesai)
+                .ToListAsync());
+        }
+        public async Task<IActionResult> Index2()
+        {
+            return View(await _context.Appointment
+                .Include(a => a.LayananFrontdesk)
+                .OrderBy(a => a.StartDate)
+                .Where(b => b.StatusFrontdesk != Appointment.status.selesai)
+
+                .ToListAsync());
+        }
+       
+        public async Task<IActionResult> Index3()
+        {
+
+            return View();
+        }
+        public async Task<IActionResult> Index4(string SearchString)
+        {
+            ViewData["CurrentFilter"] = SearchString;
+
+            var appointment = from a in _context.Appointment.Include(a => a.LayananFrontdesk)
+                              select a;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                appointment = appointment.Where(s => s.NomorApp.Equals(SearchString));
+            }
+            else
+            {
+                appointment = appointment.Take(0);
+            }
+            return View(await appointment.AsNoTracking()
+                .ToListAsync());
         }
         public async Task<IActionResult> Display()
         {
             return View(await _context.Appointment.ToListAsync());
         }
         // GET: Appointments/Details/5
+        public ActionResult DetailsView(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            ViewModel mymodel = new ViewModel();
+
+
+
+            return View(mymodel);
+        }
+        public async Task<ActionResult> Count()
+        {
+
+            IQueryable<CountViewModel> data =
+                from appointment in _context.Appointment.Where(a => a.StatusFrontdesk != Appointment.status.selesai)
+                group appointment by appointment.Tanggal.Date into dategroup
+
+                select new CountViewModel()
+                {
+                    TotalHari = dategroup.Key,
+                    DateCount = dategroup.Count(),
+                    yourlife = dategroup.Count() + 1
+
+                };
+            return View(await data.AsNoTracking().ToListAsync());
+        }
+
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -38,8 +107,14 @@ namespace Frontdesk6.Controllers
                 return NotFound();
             }
 
+
+
             var appointment = await _context.Appointment
+                .Include(a => a.LayananFrontdesk)
                 .FirstOrDefaultAsync(m => m.AppointmentID == id);
+
+
+
             if (appointment == null)
             {
                 return NotFound();
@@ -335,7 +410,121 @@ namespace Frontdesk6.Controllers
             }
             return View(appointment);
         }
-        [Authorize(Roles = "PDAD")]
+        public async Task<IActionResult> Proses(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var pendok = await _context.Appointment
+                 .Include(a => a.LayananFrontdesk)
+
+                .FirstOrDefaultAsync(m => m.AppointmentID == id);
+            if (pendok == null)
+            {
+                return NotFound();
+            }
+            ViewBag.returnUrl = Request.Headers["Referer"].ToString();
+            return View(pendok);
+        }
+
+        // POST: Pendoks/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost, ActionName("Proses")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProsesApp(string id, string returnUrl)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var pendokToUpdate = await _context.Appointment
+                .Include(a => a.LayananFrontdesk)
+
+
+                .FirstOrDefaultAsync(m => m.AppointmentID == id);
+
+            if (await TryUpdateModelAsync<Appointment>(pendokToUpdate,
+                "",
+               a => a.StatusFrontdesk))
+            {
+                try
+                {
+                    pendokToUpdate.StatusFrontdesk = Appointment.status.proses;
+                    pendokToUpdate.ProcessDate = DateTime.Now;
+
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException)
+                {
+                    ModelState.AddModelError("", "Unable to save changes");
+                }
+                return Redirect(returnUrl);
+
+            }
+
+
+            return View(pendokToUpdate);
+        }
+        public async Task<IActionResult> Selesai(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var pendok = await _context.Appointment
+                 .Include(a => a.LayananFrontdesk)
+
+                .FirstOrDefaultAsync(m => m.AppointmentID == id);
+            if (pendok == null)
+            {
+                return NotFound();
+            }
+            ViewBag.returnUrl = Request.Headers["Referer"].ToString();
+            return View(pendok);
+        }
+
+        // POST: Pendoks/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost, ActionName("Selesai")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SelesaiApp(string id, string returnUrl)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var pendokToUpdate = await _context.Appointment
+                .Include(a => a.LayananFrontdesk)
+
+
+                .FirstOrDefaultAsync(m => m.AppointmentID == id);
+
+            if (await TryUpdateModelAsync<Appointment>(pendokToUpdate,
+                "",
+               a => a.StatusFrontdesk))
+            {
+                try
+                {
+                    pendokToUpdate.StatusFrontdesk = Appointment.status.selesai;
+                    pendokToUpdate.EndDate = DateTime.Now;
+
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException)
+                {
+                    ModelState.AddModelError("", "Unable to save changes");
+                }
+                return Redirect(returnUrl);
+            }
+
+
+            return View(pendokToUpdate);
+        }
         // GET: Appointments/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
@@ -353,7 +542,7 @@ namespace Frontdesk6.Controllers
 
             return View(appointment);
         }
-        [Authorize(Roles = "PDAD")]
+
         // POST: Appointments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -364,6 +553,7 @@ namespace Frontdesk6.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool AppointmentExists(string id)
         {

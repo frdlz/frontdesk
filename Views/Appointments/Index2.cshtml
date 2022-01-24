@@ -1,0 +1,409 @@
+﻿@model IEnumerable<Frontdesk6.Models.Frontdesk.Appointment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/lib/jquery-datetimepicker/jquery.datetimepicker.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+       
+        .btn{
+            width:85px;
+        }
+        .opacity{
+            opacity:0.7;
+        }
+    </style>
+</head>
+<body onload="startTime();initClock()" class="bg-dark">
+    <div class="text-center text-white-50 font-weight-bold justify-content-around mt-0 mb-0 pt-2">
+
+        <h2>KPPBC TMP B BALIKPAPAN</h2>
+    </div>
+    <div class="col-md-12 bg-dark">
+        <div class="row">
+            <div class="col-md-7 mt-0 pt-1 rounded">
+                
+                    
+                        <div class="card mt-4"style="height:420px">
+                            <div class="container">
+                                <div class="card-body">
+                                    <div id="here" class=" table-responsive rounded table-wrap">
+
+
+
+                                        <table class="table table-bordered border border-warning rounded shadow-sm">
+                                            <thead class="text-center thead-dark">
+                                                <tr>
+
+                                                    <th style="width:10%">
+                                                        Pendok
+                                                    </th>
+
+                                                    <th style="width:10%">
+                                                        Informasi
+                                                    </th>
+
+                                                    <th style="width:10%">
+                                                        Surat Masuk
+                                                    </th>
+
+
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-left">
+
+                                                <tr>
+
+                                                    <td>
+                                                        <ol class="text-center">
+
+
+                                                            @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Sisterkaroline")).Take(5))
+                                                            {
+                                                                @if (@item.StatusFrontdesk == Frontdesk6.Models.Frontdesk.Appointment.status.proses)
+                                                                {
+                                                                    <li class="mb-1" style="margin-left:-20px">
+                                                                        <button style="width:150px" class="btn btn-sm btn-info">
+                                                                            <h4>
+                                                                                @Html.DisplayFor(modelItem => item.NomorApp)
+                                                                            </h4>
+                                                                        </button>
+
+                                                                    </li>
+
+                                                                }
+                                                                @if (item.StatusFrontdesk == Frontdesk6.Models.Frontdesk.Appointment.status.mulai)
+                                                                {
+                                                                    <li class="mb-1" style="margin-left:-20px">
+                                                                        <button style="width:150px" class="btn btn-sm btn-warning">
+                                                                            <h4>
+                                                                                @Html.DisplayFor(modelItem => item.NomorApp)
+                                                                            </h4>
+
+                                                                        </button>
+
+                                                                    </li>
+                                                                }
+
+                                                            }
+                                                        </ol>
+                                                    </td>
+                                                    <td>
+                                                        <ol>
+
+
+                                                            @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Sisterkaroline") || a.NamaLayanan.Contains("Lainnya")).Take(5))
+                                                            {
+                                                                @if (@item.StatusFrontdesk == Frontdesk6.Models.Frontdesk.Appointment.status.proses)
+                                                                {
+                                                                    <li class="mb-1" style="margin-left:-20px">
+                                                                        <button style="width:150px" class="btn btn-sm btn-info">
+                                                                            <h4>
+                                                                                @Html.DisplayFor(modelItem => item.NomorApp)
+                                                                            </h4>
+                                                                        </button>
+
+                                                                    </li>
+
+                                                                }
+                                                                @if (item.StatusFrontdesk == Frontdesk6.Models.Frontdesk.Appointment.status.mulai)
+                                                                {
+                                                                    <li class="mb-1" style="margin-left:-20px">
+                                                                        <button style="width:150px" class="btn btn-sm btn-warning">
+                                                                            <h4>
+                                                                                @Html.DisplayFor(modelItem => item.NomorApp)
+                                                                            </h4>
+
+                                                                        </button>
+
+                                                                    </li>
+                                                                }
+
+                                                            }
+                                                        </ol>
+                                                    </td>
+                                                    <td>
+                                                        <ol>
+
+
+                                                            @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Sisterkaroline")).Take(5))
+                                                            {
+                                                                @if (@item.StatusFrontdesk == Frontdesk6.Models.Frontdesk.Appointment.status.proses)
+                                                                {
+                                                                    <li class="mb-1" style="margin-left:-20px">
+                                                                        <button style="width:150px" class="btn btn-sm btn-info">
+                                                                            <h4>
+                                                                                @Html.DisplayFor(modelItem => item.NomorApp)
+                                                                            </h4>
+                                                                        </button>
+
+                                                                    </li>
+
+                                                                }
+                                                                @if (item.StatusFrontdesk == Frontdesk6.Models.Frontdesk.Appointment.status.mulai)
+                                                                {
+                                                                    <li class="mb-1" style="margin-left:-20px">
+                                                                        <button style="width:150px" class="btn btn-sm btn-sm btn-warning">
+                                                                            <h4>
+                                                                                @Html.DisplayFor(modelItem => item.NomorApp)
+                                                                            </h4>
+
+                                                                        </button>
+
+                                                                    </li>
+                                                                }
+
+                                                            }
+                                                        </ol>
+                                                    </td>
+
+
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+                                        <div class="justify-content-around float-left align-content-center">
+                                            <div class="align-top">
+                                                <span class="btn btn-sm btn-info" style="height:30px">Process</span>
+                                                <span class="btn btn-sm btn-warning">Waiting</span>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                   
+                                </div>
+                            
+                            
+                        </div>
+                  
+                    
+                        <div class="mt-5 text-center align-self-md-center">
+
+                            <div class="text-white">
+                                <div style="font-size:30px;" class="date">
+                                    <span id="dayname">Day</span>,
+                                    <span id="daynum">00</span>
+                                    <span id="month">Month</span>
+
+                                    <span id="year">Year</span>
+                                </div>
+
+                                <div style="font-size:70px" class="time">
+                                    <span id="txt"></span>
+                                    <span class="text-white-50" id="period">AM</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                   
+               
+                
+                
+                
+            </div>
+            <div class="col-md-5 mt-0 pt-1">
+
+                <div class="container mt-4 rounded">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="https://youtube.com/embed/playlist?list=PLHslsvJ4n3CDf-knsYJ-s-_f5oXD1AUlw&autoplay=1" allow="autoplay;accelerometer;" allowfullscreen;></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <br />
+                <div class="ml-3">
+                    <p class="text-white-50">Layanan Informasi :</p>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-2"><i class="fa fa-instagram fa-2x text-warning opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">@@beacukaibpn</p></div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-2"><i class="fa fa-twitter fa-2x text-info opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">@@beacukaibpn</p></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-2"><i class="fa fa-facebook fa-2x text-info opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">@@beacukaibpn</p></div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-2"><i class="fa fa-whatsapp fa-2x text-success opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">0821-4959-4957</p></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-2"><i class="fa fa-globe fa-2x text-white opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">bcbalikpapan.com</p></div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-2"><i class="fa fa-envelope fa-2x text-white-50 opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">plibcbalikpapan@gmail.com</p></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="ml-3 mt-2 text-white-50">
+                    
+                    <p class="text-white-50">Saluran Pengaduan Unit Kepatuhan Internal :</p>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-2"><i class="fa fa-whatsapp fa-2x text-success opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">0821-4924-8662</p></div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-2"><i class="fa fa-envelope fa-2x text-white-50 opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">ki_balikpapan@yahoo.com</p></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+    
+    <div style="margin-top:30px;background-color:ghostwhite;opacity:0.4;" class="col-md-12 thead-dark fixed-bottom">
+       
+        <marquee behavior="scroll" direction="left" scrollamount="3">
+            <h4>
+                Selamat datang di KPPBC TMP B Balikpapan - Penerimaan Bea Masuk mencapai Rp17,72 T (53,42% dari target). - Bea Keluar telah tercapai Rp13,17 T( 736,35% dari target). - Cukai tercapai Rp91,34 T(50,74% dari target). - #BeacukaiMakinBaik
+            </h4>
+        </marquee>
+    </div>
+    
+</body>
+
+<script>
+    $(document).ready(function () {
+        setInterval(function () {
+            $("#here").load(window.location.href + " #here");
+        }, 3000);
+    });
+</script>
+<script>
+    function startTime() {
+        const today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+        h = checkTime(h);
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+        setTimeout(startTime, 1000);
+    }
+
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
+<script type="text/javascript">
+    function updateClock() {
+        var now = new Date();
+        var dname = now.getDay(),
+            mo = now.getMonth(),
+            dnum = now.getDate(),
+            yr = now.getFullYear(),
+            hou = now.getHours(),
+            min = now.getMinutes(),
+            sec = now.getSeconds(),
+            pe = "AM";
+
+        if (hou >= 12) {
+            pe = "PM";
+        }
+        if (hou == 0) {
+            hou = 12;
+        }
+        if (hou > 12) {
+            hou = hou - 12;
+        }
+
+        Number.prototype.pad = function (digits) {
+            for (var n = this.toString(); n.length < digits; n = 0 + n);
+            return n;
+        }
+
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+        var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+        for (var i = 0; i < ids.length; i++)
+            document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+    }
+
+    function initClock() {
+        updateClock();
+        window.setInterval("updateClock()", 1);
+    }
+</script>
+<script>
+    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+</script>
+   
