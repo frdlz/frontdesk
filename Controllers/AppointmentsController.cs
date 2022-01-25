@@ -39,11 +39,11 @@ namespace Frontdesk6.Controllers
             return View(await _context.Appointment
                 .Include(a => a.LayananFrontdesk)
                 .OrderBy(a => a.StartDate)
-                .Where(b => b.StatusFrontdesk != Appointment.status.selesai)
+                
 
                 .ToListAsync());
         }
-       
+
         public async Task<IActionResult> Index3()
         {
 
@@ -64,6 +64,16 @@ namespace Frontdesk6.Controllers
                 appointment = appointment.Take(0);
             }
             return View(await appointment.AsNoTracking()
+                .ToListAsync());
+        }
+        public async Task<IActionResult> Informasi()
+        {
+            return View(await _context.Appointment
+                .Include(a => a.LayananFrontdesk)
+                .OrderBy(a => a.StartDate)
+                .Where(o => o.NamaLayanan.Contains("Sisterkaroline"))
+                .Where(b => b.StatusFrontdesk != Appointment.status.selesai)
+
                 .ToListAsync());
         }
         public async Task<IActionResult> Display()

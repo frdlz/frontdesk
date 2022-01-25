@@ -27,7 +27,7 @@
 <body onload="startTime();initClock()" class="bg-dark">
     <div class="text-center text-white-50 font-weight-bold justify-content-around mt-0 mb-0 pt-2">
 
-        <h2>KPPBC TMP B BALIKPAPAN</h2>
+        <h2>Balai KIPM Balikpapan </h2>
     </div>
     <div class="col-md-12 bg-dark">
         <div class="row">
@@ -46,11 +46,11 @@
                                                 <tr>
 
                                                     <th style="width:10%">
-                                                        Informasi
+                                                        Surat
                                                     </th>
 
                                                     <th style="width:10%">
-                                                        Surat
+                                                        Informasi
                                                     </th>
 
                                                     <th style="width:10%">
@@ -60,15 +60,15 @@
 
                                                 </tr>
                                             </thead>
-                                            <tbody class="text-left">
+                                            <tbody class="text-center">
 
                                                 <tr>
 
                                                     <td>
-                                                        <ol class="text-center">
+                                                        <ol>
 
 
-                                                            @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Sisterkaroline")).Take(5))
+                                                            @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Surat") || a.NamaLayanan.Contains("Lainnya")).Take(5))
                                                             {
                                                                 @if (@item.StatusFrontdesk == Frontdesk6.Models.Frontdesk.Appointment.status.proses)
                                                                 {
@@ -102,7 +102,7 @@
                                                         <ol>
 
 
-                                                            @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Sisterkaroline") || a.NamaLayanan.Contains("Lainnya")).Take(5))
+                                                            @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("HACCP") || a.NamaLayanan.Contains("CKIB") || a.NamaLayanan.Contains("KUSUKA") || a.NamaLayanan.Contains("PPK") || a.NamaLayanan.Contains("Sampel")).Take(5))
                                                             {
                                                                 @if (@item.StatusFrontdesk == Frontdesk6.Models.Frontdesk.Appointment.status.proses)
                                                                 {
@@ -224,7 +224,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://youtube.com/embed/playlist?list=PLHslsvJ4n3CDf-knsYJ-s-_f5oXD1AUlw&autoplay=1" allow="autoplay;accelerometer;" allowfullscreen;></iframe>
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/playlist?list=PLYD4rhTrMsYJed-PFv1ynyhgXxJIZQTUr&autoplay=1" allow="autoplay;accelerometer;" allowfullscreen;></iframe>
                             </div>
                         </div>
 
@@ -240,15 +240,15 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-2"><i class="fa fa-instagram fa-2x text-warning opacity"></i></div>
-                                    <div class="col-md-10"><p class="text-left text-white-50">@@beacukaibpn</p></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">@@bkipmbalikpapan</p></div>
                                 </div>
 
 
                             </div>
                             <div class="col-md-6">
                                 <div class="row">
-                                    <div class="col-md-2"><i class="fa fa-twitter fa-2x text-info opacity"></i></div>
-                                    <div class="col-md-10"><p class="text-left text-white-50">@@beacukaibpn</p></div>
+                                    <div class="col-md-2"><i class="fa fa-envelope fa-2x text-white-50 opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">bkipmbalikpapan@kkp.go.id</p></div>
                                 </div>
 
                             </div>
@@ -260,15 +260,38 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-2"><i class="fa fa-facebook fa-2x text-info opacity"></i></div>
-                                    <div class="col-md-10"><p class="text-left text-white-50">@@beacukaibpn</p></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">@@bkipmbpp</p></div>
                                 </div>
 
 
                             </div>
                             <div class="col-md-6">
                                 <div class="row">
-                                    <div class="col-md-2"><i class="fa fa-whatsapp fa-2x text-success opacity"></i></div>
-                                    <div class="col-md-10"><p class="text-left text-white-50">0821-4959-4957</p></div>
+                                    <div class="col-md-2"><i class="fa fa-envelope fa-2x text-white-50 opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">bkipmbpp@gmail.com</p></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-2"><i class="fa fa-twitter fa-2x text-info opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">@@BKIPMBalikpapan</p></div>
+                                    
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    
+                                     
+                                     <div class="col-md-2"><i class="fa fa-envelope fa-2x text-white-50 opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">bkiof_bpp@yahoo.co.id</p></div>
                                 </div>
 
                             </div>
@@ -280,45 +303,33 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-2"><i class="fa fa-globe fa-2x text-white opacity"></i></div>
-                                    <div class="col-md-10"><p class="text-left text-white-50">bcbalikpapan.com</p></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">www.kkp.go.id/bkipmbalikpapan</p></div>
                                 </div>
 
 
                             </div>
+                            
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="row">
-                                    <div class="col-md-2"><i class="fa fa-envelope fa-2x text-white-50 opacity"></i></div>
-                                    <div class="col-md-10"><p class="text-left text-white-50">plibcbalikpapan@gmail.com</p></div>
+                                    <div class="col-md-2"><i class="fa fa-whatsapp fa-2x text-success opacity"></i></div>
+                                    <div class="col-md-10"><p class="text-left text-white-50">0811-5459-159</p></div>
                                 </div>
 
+
                             </div>
+                            
                         </div>
 
                     </div>
                 </div>
                 <div class="ml-3 mt-2 text-white-50">
                     
-                    <p class="text-white-50">Saluran Pengaduan Unit Kepatuhan Internal :</p>
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-2"><i class="fa fa-whatsapp fa-2x text-success opacity"></i></div>
-                                    <div class="col-md-10"><p class="text-left text-white-50">0821-4924-8662</p></div>
-                                </div>
-
-
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-2"><i class="fa fa-envelope fa-2x text-white-50 opacity"></i></div>
-                                    <div class="col-md-10"><p class="text-left text-white-50">ki_balikpapan@yahoo.com</p></div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
+                    
                 </div>
 
             </div>
@@ -327,14 +338,7 @@
         
     </div>
     
-    <div style="margin-top:30px;background-color:ghostwhite;opacity:0.4;" class="col-md-12 thead-dark fixed-bottom">
-       
-        <marquee behavior="scroll" direction="left" scrollamount="3">
-            <h4>
-                Selamat datang di KPPBC TMP B Balikpapan - Penerimaan Bea Masuk mencapai Rp17,72 T (53,42% dari target). - Bea Keluar telah tercapai Rp13,17 T( 736,35% dari target). - Cukai tercapai Rp91,34 T(50,74% dari target). - #BeacukaiMakinBaik
-            </h4>
-        </marquee>
-    </div>
+   
     
 </body>
 
