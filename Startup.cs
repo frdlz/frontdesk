@@ -98,7 +98,7 @@ namespace Frontdesk6
                     pattern: "{controller=Account}/{action=Login}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=LogbookPegawais}/{action=Index}/{id?}");
+                    pattern: "{controller=Appointments}/{action=Index}/{id?}");
             });
         }
     }
