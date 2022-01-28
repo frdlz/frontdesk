@@ -177,27 +177,27 @@
 
                     </li>
 }
-                        @if (User.IsInRole("Manifest"))
+                        @if (User.IsInRole("Frontdesk"))
                         {
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-copy"></i>
                             <p>
-                                Manifest
+                                Surat
                                 <i class="fas fa-angle-left right"></i>
 
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="Manifest" class="nav-link">
+                                <a asp-controller="Appointments" asp-action="Surat" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Browse</p>
                                 </a>
                             </li>
                             
                             <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="Manifest2" class="nav-link">
+                                <a asp-controller="Appointments" asp-action="Surat2" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Selesai</p>
                                 </a>
@@ -206,36 +206,7 @@
 
                     </li>
 }
-                        @if (User.IsInRole("PDAD"))
-                        {
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Pendok
-                                <i class="fas fa-angle-left right"></i>
-
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="Pendok" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Browse</p>
-                                </a>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="Pendok2" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Selesai</p>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-}
-                        @if (User.IsInRole("Informasi"))
+                        @if (User.IsInRole("Frontdesk"))
                         {
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
@@ -253,9 +224,38 @@
                                     <p>Browse</p>
                                 </a>
                             </li>
-                           
+                            
                             <li class="nav-item">
                                 <a asp-controller="Appointments" asp-action="Informasi2" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Selesai</p>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li>
+}
+                        @if (User.IsInRole("Frontdesk"))
+                        {
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                Sisterkaroline
+                                <i class="fas fa-angle-left right"></i>
+
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="Appointments" asp-action="InSisterkaroline" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Browse</p>
+                                </a>
+                            </li>
+                           
+                            <li class="nav-item">
+                                <a asp-controller="Appointments" asp-action="InSisterkaroline2" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Selesai</p>
                                 </a>

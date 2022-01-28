@@ -410,8 +410,6 @@ C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appo
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Index4.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Informasi.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Informasi2.cshtml.g.cs
-C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Lainnya.cshtml.g.cs
-C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Lainnya2.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Manifest.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Manifest2.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\PDE.cshtml.g.cs
@@ -428,3 +426,5 @@ C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Shar
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Role\Create.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Role\Index.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Role\Update.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\InSisterkaroline.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\InSisterkaroline2.cshtml.g.cs

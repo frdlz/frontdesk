@@ -71,8 +71,58 @@ namespace Frontdesk6.Controllers
             return View(await _context.Appointment
                 .Include(a => a.LayananFrontdesk)
                 .OrderBy(a => a.StartDate)
+                .Where(a => a.NamaLayanan.Contains("HACCP") || a.NamaLayanan.Contains("CKIB") || a.NamaLayanan.Contains("KUSUKA") || a.NamaLayanan.Contains("PPK") || a.NamaLayanan.Contains("Sampel"))
+                .Where(b => b.StatusFrontdesk != Appointment.status.selesai)
+
+                .ToListAsync());
+        }
+        public async Task<IActionResult> Informasi2()
+        {
+            return View(await _context.Appointment
+                .Include(a => a.LayananFrontdesk)
+                .OrderBy(a => a.StartDate)
+                .Where(a => a.NamaLayanan.Contains("HACCP") || a.NamaLayanan.Contains("CKIB") || a.NamaLayanan.Contains("KUSUKA") || a.NamaLayanan.Contains("PPK") || a.NamaLayanan.Contains("Sampel"))
+                .Where(b => b.StatusFrontdesk == Appointment.status.selesai)
+
+                .ToListAsync());
+        }
+        public async Task<IActionResult> Surat()
+        {
+            return View(await _context.Appointment
+                .Include(a => a.LayananFrontdesk)
+                .OrderBy(a => a.StartDate)
+                .Where(o => o.NamaLayanan.Contains("Surat") || o.NamaLayanan.Contains("Lainnya"))
+                .Where(b => b.StatusFrontdesk != Appointment.status.selesai)
+
+                .ToListAsync());
+        }
+        public async Task<IActionResult> Surat2()
+        {
+            return View(await _context.Appointment
+                .Include(a => a.LayananFrontdesk)
+                .OrderBy(a => a.StartDate)
+                .Where(o => o.NamaLayanan.Contains("Surat") || o.NamaLayanan.Contains("Lainnya"))
+                .Where(b => b.StatusFrontdesk == Appointment.status.selesai)
+
+                .ToListAsync());
+        }
+        public async Task<IActionResult> InSisterkaroline()
+        {
+            return View(await _context.Appointment
+                .Include(a => a.LayananFrontdesk)
+                .OrderBy(a => a.StartDate)
                 .Where(o => o.NamaLayanan.Contains("Sisterkaroline"))
                 .Where(b => b.StatusFrontdesk != Appointment.status.selesai)
+
+                .ToListAsync());
+        }
+        public async Task<IActionResult> InSisterkaroline2()
+        {
+            return View(await _context.Appointment
+                .Include(a => a.LayananFrontdesk)
+                .OrderBy(a => a.StartDate)
+                .Where(o => o.NamaLayanan.Contains("Sisterkaroline"))
+                .Where(b => b.StatusFrontdesk == Appointment.status.selesai)
 
                 .ToListAsync());
         }
