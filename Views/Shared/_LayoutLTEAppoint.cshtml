@@ -4,9 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <title>OASYS x KPPBC TMP B Balikpapan</title>
-    <link rel="icon" href="~/img/logobcbpn.png">
+    <title>BKIPM</title>
+    <link rel="icon" href="~/img/logo.png">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
     <!-- Datatable -->
@@ -117,8 +116,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="~/img~/img/logo.png" alt="Balai KIPM Balikpapan" class="brand-image elevation-3">
-                <span class="brand-text">OASYS</span>
+                <img src="~/img/logo.png" alt="Balai KIPM Balikpapan" class="brand-image elevation-3">
+                <span class="brand-text">BKIPM</span>
             </a>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -264,95 +263,7 @@
 
                     </li>
 }
-                        @if (User.IsInRole("Surat"))
-                        {
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Surat
-                                <i class="fas fa-angle-left right"></i>
-
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="Surat" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Browse</p>
-                                </a>
-                            </li>
-                           
-                            <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="Surat2" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Selesai</p>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-}
-
-                        @if (User.IsInRole("PDAD"))
-                        {
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                PDE
-                                <i class="fas fa-angle-left right"></i>
-
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="PDE" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Browse</p>
-                                </a>
-                            </li>
-                           
-                            <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="PDE2" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Selesai</p>
-                                </a>
-                            </li>
-                        </ul>
-
-
-                    </li>
-}
-                        @if (User.IsInRole("Analyzing"))
-                        {
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                AP
-                                <i class="fas fa-angle-left right"></i>
-
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="Analyzing" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Browse</p>
-                                </a>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="Analyzing2" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Selesai</p>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-}
+                        
 
 
 
