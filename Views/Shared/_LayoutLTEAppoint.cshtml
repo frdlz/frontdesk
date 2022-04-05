@@ -176,35 +176,7 @@
 
                     </li>
 }
-                        @if (User.IsInRole("Frontdesk"))
-                        {
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Surat
-                                <i class="fas fa-angle-left right"></i>
-
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="Surat" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Browse</p>
-                                </a>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a asp-controller="Appointments" asp-action="Surat2" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Selesai</p>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-}
+                        
                         @if (User.IsInRole("Frontdesk"))
                         {
                     <li class="nav-item has-treeview">

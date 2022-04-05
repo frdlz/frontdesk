@@ -68,6 +68,8 @@ C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\win-x86\PubTmp
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\win-x86\PubTmp\Out\wwwroot\dist\js\pages\dashboard3.js
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\win-x86\PubTmp\Out\wwwroot\favicon.ico
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\win-x86\PubTmp\Out\wwwroot\img\logo.png
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\win-x86\PubTmp\Out\wwwroot\img\Logobkipmnew.png
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\win-x86\PubTmp\Out\wwwroot\img\logonew.png
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\win-x86\PubTmp\Out\wwwroot\js\site.js
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\win-x86\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\win-x86\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
