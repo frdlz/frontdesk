@@ -25,7 +25,7 @@ namespace Frontdesk6.Controllers
             userManager = userMgr;
             _context = context;
         }
-        [Authorize(Roles = "PDAD")]
+        
         // GET: Appointments
         public async Task<IActionResult> Index()
         {
@@ -34,16 +34,19 @@ namespace Frontdesk6.Controllers
                 .Where(b => b.StatusFrontdesk != Appointment.status.selesai)
                 .ToListAsync());
         }
+        [Authorize(Roles = "PDAD")]
         public async Task<IActionResult> Index2()
         {
             return View(await _context.Appointment
+                
                 .Include(a => a.LayananFrontdesk)
+                .Where(a => a.StatusFrontdesk != Appointment.status.selesai)
                 .OrderBy(a => a.StartDate)
                 
 
                 .ToListAsync());
         }
-
+        [Authorize(Roles = "PDAD")]
         public async Task<IActionResult> Index3()
         {
 
@@ -66,6 +69,7 @@ namespace Frontdesk6.Controllers
             return View(await appointment.AsNoTracking()
                 .ToListAsync());
         }
+        [Authorize(Roles = "PDAD")]
         public async Task<IActionResult> Informasi()
         {
             return View(await _context.Appointment
@@ -76,6 +80,7 @@ namespace Frontdesk6.Controllers
 
                 .ToListAsync());
         }
+        [Authorize(Roles = "PDAD")]
         public async Task<IActionResult> Informasi2()
         {
             return View(await _context.Appointment
@@ -86,26 +91,29 @@ namespace Frontdesk6.Controllers
 
                 .ToListAsync());
         }
-        public async Task<IActionResult> Surat()
+        [Authorize(Roles = "PDAD")]
+        public async Task<IActionResult> Lainnya()
         {
             return View(await _context.Appointment
                 .Include(a => a.LayananFrontdesk)
                 .OrderBy(a => a.StartDate)
-                .Where(o => o.NamaLayanan.Contains("Surat") || o.NamaLayanan.Contains("Lainnya"))
+                .Where(o => o.NamaLayanan.Contains("Lainnya"))
                 .Where(b => b.StatusFrontdesk != Appointment.status.selesai)
 
                 .ToListAsync());
         }
-        public async Task<IActionResult> Surat2()
+        [Authorize(Roles = "PDAD")]
+        public async Task<IActionResult> Lainnya2()
         {
             return View(await _context.Appointment
                 .Include(a => a.LayananFrontdesk)
                 .OrderBy(a => a.StartDate)
-                .Where(o => o.NamaLayanan.Contains("Surat") || o.NamaLayanan.Contains("Lainnya"))
+                .Where(o => o.NamaLayanan.Contains("Lainnya"))
                 .Where(b => b.StatusFrontdesk == Appointment.status.selesai)
 
                 .ToListAsync());
         }
+        [Authorize(Roles = "PDAD")]
         public async Task<IActionResult> InSisterkaroline()
         {
             return View(await _context.Appointment
@@ -116,6 +124,7 @@ namespace Frontdesk6.Controllers
 
                 .ToListAsync());
         }
+        [Authorize(Roles = "PDAD")]
         public async Task<IActionResult> InSisterkaroline2()
         {
             return View(await _context.Appointment
@@ -126,6 +135,7 @@ namespace Frontdesk6.Controllers
 
                 .ToListAsync());
         }
+        
         public async Task<IActionResult> Display()
         {
             return View(await _context.Appointment.ToListAsync());
@@ -436,6 +446,7 @@ namespace Frontdesk6.Controllers
 
             return View(monitaToUpdate);
         }
+        [Authorize(Roles = "PDAD")]
         // POST: Appointments/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -585,6 +596,7 @@ namespace Frontdesk6.Controllers
 
             return View(pendokToUpdate);
         }
+        [Authorize(Roles = "PDAD")]
         // GET: Appointments/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
@@ -602,7 +614,7 @@ namespace Frontdesk6.Controllers
 
             return View(appointment);
         }
-
+        [Authorize(Roles = "PDAD")]
         // POST: Appointments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

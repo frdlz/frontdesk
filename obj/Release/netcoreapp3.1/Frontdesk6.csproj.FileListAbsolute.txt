@@ -182,8 +182,6 @@ C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Razor\Views\Ap
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Razor\Views\Appointments\Proses.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Razor\Views\Appointments\Selesai.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Razor\Views\Appointments\Sisterkaroline.cshtml.g.cs
-C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Razor\Views\Appointments\Surat.cshtml.g.cs
-C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Razor\Views\Appointments\Surat2.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Razor\Views\Appointments\_PartialView.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
@@ -213,3 +211,5 @@ C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Frontdesk6.csp
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Frontdesk6.dll
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Frontdesk6.pdb
 C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Frontdesk6.genruntimeconfig.cache
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Razor\Views\Appointments\Lainnya.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\frontdesk\obj\Release\netcoreapp3.1\Razor\Views\Appointments\Lainnya2.cshtml.g.cs
